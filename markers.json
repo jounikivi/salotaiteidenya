@@ -1,0 +1,86 @@
+markers = [
+   {
+     "name": "Salo",
+     "url": "https://taiteidenya.net/",
+     "lat": 60.38495,
+     "lng": 23.12898
+   },
+   {
+     "name": " IoT Campus",
+     "url": "https://en.wikipedia.org/wiki/Anguilla",
+     "lat": 60.389573,
+     "lng": 23.103500
+   },
+   {
+     "name": "Astrum keskus",
+     "url": "https://en.wikipedia.org/wiki/Barbados",
+     "lat": 60.391298,
+     "lng": 23.112060
+   },
+   {
+     "name": "Mariankatu 14",
+     "url": "https://en.wikipedia.org/wiki/United_States",
+     "lat": 60.388121,
+     "lng": 23.117787
+   },
+   {
+     "name": "Helsingintie 4",
+     "url": "https://en.wikipedia.org/wiki/Ireland",
+     "lat": 60.386489,
+     "lng": 23.130995
+   },
+   {
+     "name": "Kulttuuritalo Villin verstas",
+     "url": "https://en.wikipedia.org/wiki/Scotland",
+     "lat": 60.383196,
+     "lng": 23.127318
+   },
+   {
+     "name": "Örninkatu 14",
+     "url": "https://en.wikipedia.org/wiki/England",
+     "lat": 60.385318,
+     "lng": 23.111312
+   },
+   {
+     "name": "Rummulyöjänkatu/Helsingintie kulmalla",
+     "url": "https://en.wikipedia.org/wiki/France",
+     "lat": 60.386415,
+     "lng": 23.131514
+   },
+   {
+     "name": "Salon SYTY ry",
+     "url": "https://en.wikipedia.org/wiki/The_Netherlands",
+     "lat": 60.38663,
+     "lng": 23.13244
+   },
+   {
+     "name": "Salon kaupungin nuorisopalvelut",
+     "url": "https://en.wikipedia.org/wiki/Switzerland",
+     "lat": 60.38716,
+     "lng": 23.11992
+   },
+   {
+     "name": "Salon seurakunta",
+     "url": "https://en.wikipedia.org/wiki/South_Africa",
+     "lat": 60.3857,
+     "lng": 23.13392
+   },
+   {
+     "name": "Salva ry & Päiväkoti Aurinkoleijona",
+     "url": "https://en.wikipedia.org/wiki/Madagascar",
+     "lat": 60.39099,
+     "lng": 23.1195
+   },
+   {
+     "name": "Salon elektroniikkamuseo",
+     "url": "https://en.wikipedia.org/wiki/Taiwan",
+     "lat": 60.3914,
+     "lng": 23.11214
+   },
+   {
+     "name": "Bar Bizarre",
+     "url": "https://en.wikipedia.org/wiki/Japan",
+     "lat": 60.38654,
+     "lng": 23.13047
+   }
+];

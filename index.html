@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+  <head profile="http://gmpg.org/xfn/11">
+    <title>Taiteiden yä ver</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="http://cdn.leafletjs.com/leaflet/v1.4.0/leaflet.css" />
+   
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <script type='text/javascript' src='http://cdn.leafletjs.com/leaflet/v1.4.0/leaflet.js'></script>
+    <header>
+        <div class="stars"></div>
+        <div class="twinkling">
+            <img src="image/550_2018-08-22T15-49-18--159049051215-removebg-preview.png" id="logo" class="center"/>
+            <h1>Taiteiden Yä</h3>
+              <h3>-Kaikille avoin kulttuuritapahtuma Salossa 5.9.2019-</h3>
+        </div>
+      </header>
+  </head>
+<body>
+    
+      <!-- <div class="head" ></div> -->
+      <div class="navbar">
+        <a class="active" href="#"><i class="fa fa-fw fa-home"></i>koti</a>
+        <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+        <a href="lähetys/lomake.html"><i class="fa fa-fw fa-user"></i> Ilmoita uusitapahtuma</a>
+      </div>
+    
+
+
+
+        <select name="navyOp" style="margin-left: 35px;" class="btn" onchange="test(this);">
+            <option selected hidden> Valitse tapahtuma-alue</option>
+            <option value="AN01">Tori</option>
+      <option value="AN02">Kulttuuritalo Villi alue</option>
+      <option value="AN03">Salo IoT Campus</option>
+      <option value="AN04">Astrum keskus</option>
+      <option value="AN05">Helsingintien tapahtuma-alue</option>
+      <option value="AN06">Salon taidemuseo Veturitalli</option>
+        </select>
+
+         <input style="width: 210px; height: 25px; margin-left: 120px; height: 24px;" class="btn" type="button" value="Ilmoita uusi Tapahtuma" onclick="openWin()">
+      
+                <!-- kartta-->
+
+     <div style="z-index: 2;" id="map"></div>
+
+        <div class="row">
+            <div>
+              <div class="card">
+            <br>
+        <button type="button" style="width: 120px; margin-left: 45px;" class="aika" onclick="Vaihda('valinnat')"> Valitse aika</button> 
+        <fieldset id="valinnat" class="dropdown" style="width:150px; margin-left: 26px">
+          <input type="checkbox" name="rad" id="k1v1"> Kello 06-14<br>
+          <input type="checkbox" name="rad" id="k1v2"> Kello 14-18<br>
+          <input type="checkbox" name="rad" id="k1v3"> Kello 18-21<br>
+          <input type="checkbox" name="rad" id="k1v4"> Kello 21-
+        </fieldset>
+      </div>
+    </div>
+        
+    <div>
+        <div class="card">
+          <br>
+        <button type="button" style="width: 185px; margin-left: 10px;" class="Tapahtuma" onclick="Vaihda('valinnat2')"> Valitse Tapahtuma</button> 
+        <fieldset id="valinnat2" class="dropdown" style="width:164px;">
+          <input type="checkbox" name="rad2" id="k2v1"> Elokuva<br>
+          <input type="checkbox" name="rad2" id="k2v2"> Näytelmä<br>
+          <input type="checkbox" name="rad2" id="k2v3"> ?
+        </fieldset>
+      </div>
+    </div>
+    </div>
+    <div>
+        <div class="card">
+          <br>
+        <button type="button" style="width: 179px" class="kategoria" onclick="Vaihda('valinnat3')"> Valitse Kategoria</button> 
+        <fieldset id="valinnat3" style="width:170px" class="dropdown">
+          <input type="checkbox" name="rad3" id="k3v1"> Musiikki<br>
+          <input type="checkbox" name="rad3" id="k3v2"> Kirjallisuus<br>
+          <input type="checkbox" name="rad3" id="k3v3"> Draama<br>
+          <input type="checkbox" name="rad3" id="k3v4"> Kotimainen<br>
+          <input type="checkbox" name="rad3" id="k3v5"> Komedia<br>
+          <input type="checkbox" name="rad3" id="k3v6"> Lapsille<br>
+        </fieldset>
+      </div>
+    </div>
+    </div>
+    
+    <div>
+      <div class="card">
+        <br>
+        <button style="width: 53px; margin-left: 55px;" id="hae_nappi" class="hae" onclick="Suodata()"> Hae</button>
+    </div>
+    </div>
+
+    <div class="bg"></div>
+
+    <style>
+
+ .column {
+  float: left;
+  width: 200px;
+ }
+
+ .bg {
+    background-image: url("image/saloyö.jpeg");
+    height: 120%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+    margin-top: -727px;
+ }
+  
+
+
+    </style>
+
+    <script type='text/javascript'>
+ window.test = function(e) {
+  if (e.value === 'AN01') {
+    map.setView([60.38495,23.12898], 17)
+
+  } else if (e.value === 'AN02') {
+    map.setView([60.383196, 23.127318 ], 17)
+
+  } else if (e.value === 'AN03') {
+    //map.panTo(new L.LatLng(60.45162,22.26687));
+    map.setView([60.389573, 23.103500], 17)
+  }
+
+  else if (e.value === 'AN04') {
+    //map.panTo(new L.LatLng(60.45162,22.26687));
+    map.setView([60.391298, 23.112060], 17)
+
+  } else if (e.value === 'AN05') {
+    //map.panTo(new L.LatLng(60.45162,22.26687));
+    map.setView([60.38663, 23.13244], 17)
+  }
+  else if (e.value === 'AN06') {
+    //map.panTo(new L.LatLng(60.45162,22.26687));
+    map.setView([60.388119, 23.117374], 17)
+  }
+}
+    </script>
+    
+    <script>
+      function openWin() {
+        window.open("lähetys/lomake.html");
+      }
+      </script>
+    
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<!--
+<main class="grid">
+    <article>
+    <div class="card">
+      <img src="image/halikko_vesitorni.jpeg" alt="Sample photo">
+      <div class="text">
+        <h3>Seamlessly visualize quality</h3>
+        <p>Collaboratively administrate empowered markets via plug-and-play networks.</p>
+        <button>Here's why</button>
+        </div>
+      </div>
+    </article>
+    <article>
+        <div class="card">
+      <img src="image/muurlan_opisto.png" alt="Sample photo">
+      <div class="text">
+        <h3>Completely Synergize</h3>
+        <p>Dramatically engage seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing.</p>
+        <button>Here's how</button>
+      </div>
+    </div>
+  </article>
+    <article>
+        <div class="card">
+      <img src="image/piazza_brass.png" alt="Sample photo">
+      <div class="text">
+        <h3>Dynamically Procrastinate</h3>
+        <p>Completely synergize resource taxing relationships via premier niche markets.</p>
+        <button>Read more</button>
+      </div>
+    </div>
+    </article>
+    <article>
+        <div class="card">
+      <img src="image/salon_sanomat.png" alt="Sample photo">
+      <div class="text">
+        <h3>Best in class</h3>
+        <p>Imagine jumping into that boat, and just letting it sail wherever the wind takes you...</p>
+        <button>Just do it...</button>
+      </div>
+    </div>
+  </article>
+    <article>
+      <div class="card">
+      <img src="image/teatteri_provinssi.png" alt="Sample photo">
+      <div class="text">
+        <h3>Dynamically innovate supply chains</h3>
+        <p>Holisticly predominate extensible testing procedures for reliable supply chains.</p>
+        <button>Here's why</button>
+      </div>
+    </div>
+    </article>
+    <article>
+        <div class="card"> <div class="card">
+      <img src="image/veturitalli-taidemuseo.jpg" alt="Sample photo">
+      <div class="text">
+        <h3>Sanity check</h3>
+        <p>Objectively innovate empowered manufactured products whereas parallel platforms.</p>
+        <button>Stop here</button>
+      </div>
+    </div>
+    </article>
+
+  </main>
+-->
+<script>
+$(document).click(function (e) {
+    if (!$(e.target).hasClass("btn") 
+        && $(e.target).parents(".dropdown").length === 0) 
+    {
+        $(".dropdown").hide();
+    }
+  
+});
+
+</script>
+
+
+
+    <script type='text/javascript' src='leaf.js'></script>
+
+    <script type='text/javascript'>
+    window.onload = function()
+    {
+      var es=document.getElementById("valinnat").style.display='none';
+      var es=document.getElementById("valinnat2").style.display='none';
+      var es=document.getElementById("valinnat3").style.display='none';   
+    };
+
+    function Vaihda(v)
+    {
+      var es=document.getElementById(v).style;
+      if(es.display=='' || es.display=='none')
+        es.display='block';
+          else es.display='none';
+    }
+
+    function Suodata()
+    {
+      var checkboxit=["k1v1","k1v2","k1v3","k1v4"];
+      //var checkbox_indeksit=[[8],[14],[18,13,16],[7]];
+      var checkbox_indeksit=[[13, 15, 17],
+        [1, 3, 5, 6, 10, 11, 13, 14, 15, 16, 17, 18],
+        [1, 2, 3, 4, 5, 6, 8, 10, 12, 13, 14, 15, 16, 17, 18],
+        [4, 5, 6, 7, 9, 15, 17, 19]];
+
+      //alert("checkbox_indeksit.length= " + checkbox_indeksit.length);
+
+      //poistetaan ensin kaikki
+      for(var i=0;i<checkboxit.length;i++)
+        for(var j=0;j<checkbox_indeksit[i].length;j++)
+          map.removeLayer(talteenMarkers[checkbox_indeksit[i][j]]);
+
+      //lisätään markkereita
+      for(var i=0;i<checkboxit.length;i++)    //tässä oli bugi?
+        for(var j=0;j<checkbox_indeksit[i].length;j++)
+        {
+          //alert("checkboxit_indeksit[i].length=" + checkbox_indeksit[i].length);
+
+          var x=document.getElementById(checkboxit[i]);
+          if (x.checked==true)
+          {
+            map.addLayer(talteenMarkers[checkbox_indeksit[i][j]]);
+          }
+        }
+  }
+    </script>
+
+  </body>
+
+  <footer>
+     
+
+  </footer>
+</html>

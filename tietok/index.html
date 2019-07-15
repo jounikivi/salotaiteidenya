@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+  <head profile="http://gmpg.org/xfn/11">
+    <title>Leaflet Example - asmaloney.com</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" type="text/css" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
+    <script type='text/javascript' src='http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js'></script>
+  </head>
+
+  <body>
+    <h1>Taiteiden yä</h1>
+
+    <style>
+ .column {
+  float: left;
+  width: 200px;
+}
+    </style>
+
+    <script type='text/javascript'>
+ window.test = function(e) {
+  if (e.value === 'AN01') {
+    map.setView([60.38495,23.12898], 17)
+
+  } else if (e.value === 'AN02') {
+    map.setView([60.383196, 23.127318 ], 17)
+
+  } else if (e.value === 'AN03') {
+    //map.panTo(new L.LatLng(60.45162,22.26687));
+    map.setView([60.45162,22.26687], 17)
+  }
+}
+    </script>
+
+    <br>
+    <select name="navyOp" onchange="test(this);">
+      <option selected hidden> Valitse tapahtuma-alue</option>
+      <option value="AN01">Tori</option>
+      <option value="AN02">Kulttuuritalo Villi alue</option>
+      <option value="AN03">Kauppatorin alue</option>
+    </select>
+
+    <br><br><br>
+
+    <div id="map" style="width: 800px; height: 440px; border: 1px solid #AAA;"></div>
+    
+    <div class="row">
+        <div class="column">
+          <div class="card">
+    <br>
+    <button onclick="Vaihda('valinnat')"> Valitse aika</button> 
+    <fieldset id="valinnat" style="width:100px">
+      <input type="radio" name="rad"> val1<br>
+      <input type="radio" name="rad"> val2<br>
+      <input type="radio" name="rad"> val3
+    </fieldset>
+  </div>
+</div>
+    
+<div class="column">
+    <div class="card">
+      <br>
+    <button onclick="Vaihda('valinnat2')"> Valitse Tapahtuma</button> 
+    <fieldset id="valinnat2" style="width:100px">
+      <input type="radio" name="rad2"> val1<br>
+      <input type="radio" name="rad2"> val2<br>
+      <input type="radio" name="rad2"> val3
+    </fieldset>
+  </div>
+</div>
+</div>
+
+<div class="column">
+    <div class="card">
+      <br>
+    <button onclick="Vaihda('valinnat3')"> Valitse Tapahtuma</button> 
+    <fieldset id="valinnat3" style="width:100px">
+      <input type="radio" name="rad3"> val1<br>
+      <input type="radio" name="rad3"> val2<br>
+      <input type="radio" name="rad3"> val3
+    </fieldset>
+  </div>
+</div>
+</div>
+
+    <script type='text/javascript' src='markers.json'></script>
+    <script type='text/javascript' src='leaf.js'></script>
+
+    <script type='text/javascript'>
+    window.onload = function()
+    {
+      var es=document.getElementById("valinnat").style.display='none';
+      var es=document.getElementById("valinnat2").style.display='none';
+      var es=document.getElementById("valinnat3").style.display='none';
+    };
+
+    function Vaihda(v)
+    {
+      var es=document.getElementById(v).style;
+      if(es.display=='' || es.display=='none')
+        es.display='block';
+          else es.display='none';
+    }
+    </script>
+
+  </body>
+</html>
