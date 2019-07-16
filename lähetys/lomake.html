@@ -22,24 +22,28 @@
    width: 200px;
  }
      </style>
+     
+     <br>
+     <br>
      <div>
+       
+       <p>Lue ohjeet ennen ilmoituksen lähetämistä</p>
+       <br>
         <button id="myBtn">Avaa ohjeet</button>
          <!-- The Modal -->
         <div id="myModal" class="modal">
          <!-- Modal content -->
           <div class="modal-content">
             <span class="close">&times;</span>
-            <p>Täytä kaikki kohdat huolella</p>
-      <ul>
-        <li>kuka järjestää</li>
-        <li>tapahtuman nimi</li>
-        <li>minkä tyylinen tapahtuma <br> ESIM: MUSIIKKI, TEATERI,LAPSILLE...</li>
-        <li>Koska alkaa ja milloin loppuu <br> KELLON AIKA MUODOSSA 00:00 </li>
-        <li>Osoite missä järjestetään</li>
-        <li>järjestä Yhteystiedot <br> EMAIL/PUH</li>
-        <li>www sivut tai some sivu</li>
-        <LI>Anna lyhyt kuvaus tapahmasta</LI>
-        <LI>Anna infoa <br> ESMIN: TARVIIKO ILMOITTUA YMS... </LI>
+            <p style="font-weight: bold">Täytä kaikki kohdat huolella</p>
+            <br>
+        <p>kuka järjestää, tapahtuman nimi <br>
+        minkä tyylinen tapahtuma <br> <p style="font-weight: bold">ESIM: MUSIIKKI, TEATERI,LAPSILLE...</p>
+        Koska alkaa ja milloin loppuu <br>  <p style="font-weight: bold">KELLON AIKA MUODOSSA 00:00</p>
+        Osoite missä järjestetään. Järjestän Yhteystiedot <br> <p style="font-weight: bold">EMAIL/PUH</p>
+        www sivut tai some sivu <br> Anna lyhyt kuvaus tapahmasta
+        Anna infoa <br> <p style="font-weight: bold">ESIM: TARVIIKO ILMOITTUA YMS...</p>
+        </p>
           </div>
         </div>
         <script>
@@ -75,28 +79,30 @@
 
         <form action="lomake.php" method="get">
           <br>
-          Järjestäjän nimi <br> <input type="text" name="Järjestäjän_nimi" value=""/>
+          Järjestäjän nimi <br> <input type="text" name="Järjestäjän_nimi" value="" required/>
           <br>
-          Tapahtuman nimi <br> <input type="text" name="Tapahtuman_nimi" value=""/>
+          Tapahtuman nimi <br> <input type="text" name="Tapahtuman_nimi" value="" required/>
           <br>
-          Kategorian nimi <br> <input type="text" name="Kategorian_nimi" value=""/>
+          <br> 
+          Kategorian nimi <br> <input type="text" name="Kategorian_nimi" value="" />
           <br>
-          Aloitusaika <br> <input type="text" name="Aloitus_Aika" value=""/> Kirjoita muotoon 15:00
+          Aloitusaika <br> <input type="text" name="Aloitus_Aika" value="" required/> 
           <br>
-          Päättymisaika <br> <input type="text" name="Päätymis_Aika" value=""/> Kirjoita muotoon 17:00
+          Päättymisaika <br> <input type="text" name="Päätymis_Aika" value="" required/> 
           <br>
-          Osoite <br> <input type="text" name="Osoite" value=""/>
+          Osoite <br> <input type="text" name="Osoite" value="" required/>
           <br>
-          Yhteystiedot <br>  <input type="text" name="Yhteystiedot" value=""/>
+          Yhteystiedot <br>  <input type="text" name="Yhteystiedot" value="" required/>
           <br>
-          Järjestäjän nettisivut <br> <input type="text" name="Järjestäjän_nettisivut" value=""/>
+          Järjestäjän nettisivut <br> <input type="text" name="Järjestäjän_nettisivut" value="" required/>
           <br>
 
           Tapahtuman kuvaus <br> 
-          <textarea rows="5" cols ="50" name="Tapahtumankuvaus"></textarea>
+          <textarea rows="5" cols ="50" name="Tapahtumankuvaus" required></textarea>
           <br>
           Info <br>
-          <textarea rows="5" cols="50" name="tapahtumainfo"></textarea>
+          <textarea rows="5" cols="50" name="tapahtumainfo"
+          required></textarea>
           <br>
 
           <input type="submit" name="submit" value="Lähetä"/>
